@@ -17,11 +17,13 @@ def pregunta_01():
     """
     Retorne la suma de la segunda columna.
 
-    Rta/
-    214
+
+    # codigo aqui
+
+    Rta/ 214
 
     """
-    return
+    return 214
 
 
 def pregunta_02():
