@@ -12,6 +12,9 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 """
 # Lectura de los datos
+from re import L
+
+
 with open("./data.csv", "r") as carpeta:
     datos = carpeta.readlines()
 
@@ -53,7 +56,19 @@ def pregunta_02():
     ]
 
     """
-    return
+    lista1 = []
+    lista2 = []
+    for dato in conversionDatos:
+        l = dato [0]
+        if l in lista1:
+            valor = lista1.index(l)
+            lista2[valor] += 1
+        else:
+            lista1.append(l)
+            lista2.append(1)
+
+    listafinal = list(zip(lista1, lista2))
+    return sorted(listafinal, key=lambda tup: tup[0])
 
 
 def pregunta_03():
