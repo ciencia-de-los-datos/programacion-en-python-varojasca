@@ -61,8 +61,8 @@ def pregunta_02():
     for dato in conversionDatos:
         l = dato [0]
         if l in lista1:
-            valor = lista1.index(l)
-            lista2[valor] += 1
+            x = lista1.index(l)
+            lista2[x] += 1
         else:
             lista1.append(l)
             lista2.append(1)
@@ -86,7 +86,20 @@ def pregunta_03():
     ]
 
     """
-    return
+
+    lista1 = []
+    lista2 = []
+    for dato in conversionDatos:
+        l = dato[0]
+        if l in lista1:
+            x = lista1.index(l)
+            lista2[x] += int(dato[1])
+        else:
+            lista1.append(l)
+            lista2.append(int(dato[1]))
+
+    listafinal = list(zip(lista1, lista2))
+    return sorted(listafinal, key=lambda tup: tup[0])
 
 
 def pregunta_04():
