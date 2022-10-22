@@ -124,7 +124,19 @@ def pregunta_04():
     ]
 
     """
-    return
+    lista1 = []
+    lista2 = []
+    for dato in conversionDatos:
+        fecha = dato[2].split('-')
+        month = fecha[1]
+        if month in lista1:
+            x = lista1.index(month)
+            lista2[x] += 1
+        else:
+            lista1.append(month)
+            lista2.append(1)
+    listafinal = list(zip(lista1, lista2))
+    return sorted(listafinal, key=lambda tup: tup[0])
 
 
 def pregunta_05():
@@ -142,7 +154,25 @@ def pregunta_05():
     ]
 
     """
-    return
+    lista1 = []
+    lista3 = []
+    listamaximo = []
+    listaminimo = []
+
+    for dato in conversionDatos:
+        l = dato[0]
+        if l in lista1:
+            x = lista1.index(l)
+            lista3[x].append(int(dato[1]))
+        else:
+            lista1.append(l)
+            lista3.append([int(dato[1])])
+    for y in lista3:
+        listamaximo.append(max(y))
+        listaminimo.append(min(y))
+
+    listafinal = list(zip(lista1, listamaximo, listaminimo))
+    return sorted(listafinal, key=lambda tup: tup[0])
 
 
 def pregunta_06():
@@ -167,7 +197,34 @@ def pregunta_06():
     ]
 
     """
-    return
+    lista1 = []
+    lista3 = []
+    listamaximo = []
+    listaminimo = []
+
+    for dato in conversionDatos:
+        z = []
+        for sub in dato[4].split(','):
+
+            if ':' in sub:
+                z.append(map(str.strip, sub.split(':', 1)))
+
+        z = dict(z)
+        for k in z.keys():
+            l = k
+            if l in lista1:
+                x = lista1.index(l)
+                lista3[x].append(int(z[k]))
+            else:
+                lista1.append(l)
+                lista3.append([int(z[k])])
+
+    for y in lista3:
+        listamaximo.append(max(y))
+        listaminimo.append(min(y))
+
+    listafinal = list(zip(lista1, listaminimo, listamaximo))
+    return sorted(listafinal, key=lambda tup: tup[0])
 
 
 def pregunta_07():
