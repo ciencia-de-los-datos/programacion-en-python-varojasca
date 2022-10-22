@@ -11,7 +11,16 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 
 """
+# Lectura de los datos
+with open("./data.csv", "r") as carpeta:
+    datos = carpeta.readlines()
 
+# Limpieza de los datos
+
+datoscsv = [line.replace("\n", "") for line in datos]
+
+# Conversión de los datos a listas
+conversionDatos = [line.split("\t") for line in datoscsv]
 
 def pregunta_01():
     """
@@ -23,7 +32,10 @@ def pregunta_01():
     Rta/ 214
 
     """
-    return 278
+    sumacolumna2 = 0
+    for dato in conversionDatos:
+        sumacolumna2 += int(dato[1])
+    return sumacolumna2
 
 
 def pregunta_02():
