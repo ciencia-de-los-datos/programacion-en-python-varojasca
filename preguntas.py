@@ -378,9 +378,9 @@ def pregunta_10():
         z = []
         lista1.append(dato[0])
 
-        listaf = dato[3].split(',')
+        listafinal = dato[3].split(',')
 
-        lista4.append(len(listaf))
+        lista4.append(len(listafinal))
 
         for sub in dato[4].split(','):
 
