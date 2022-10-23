@@ -253,7 +253,7 @@ def pregunta_07():
     for dato in conversionDatos:
         numero = int(dato[1])
         if numero in lista1:
-            x = lista1.index(num)
+            x = lista1.index(numero)
             lista2[x].append(dato[0])
         else:
             lista1.append(numero)
