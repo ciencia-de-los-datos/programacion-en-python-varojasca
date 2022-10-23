@@ -370,6 +370,30 @@ def pregunta_10():
 
 
     """
+    lista1 = []
+    lista4 = []
+    lista5 = []
+
+    for dato in conversionDatos:
+        z = []
+        lista1.append(dato[0])
+
+        listaf = dato[3].split(',')
+
+        lista4.append(len(listaf))
+
+        for sub in dato[4].split(','):
+
+            if ':' in sub:
+                z.append(map(str.strip, sub.split(':', 1)))
+
+        z = dict(z)
+
+        lista5.append(len(z))
+
+    listafinal = list(zip(lista1, lista4, lista5))
+    return listafinal
+
     return
 
 
