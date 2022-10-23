@@ -415,7 +415,16 @@ def pregunta_11():
 
 
     """
-    return
+    diccionario = {}
+
+    for dato in conversionDatos:
+        x = int(dato[1])
+        for letra in dato[3].split(','):
+            if letra in diccionario:
+                diccionario[letra] += x
+            else:
+                diccionario[letra] = x
+    return diccionario
 
 
 def pregunta_12():
@@ -433,4 +442,23 @@ def pregunta_12():
     }
 
     """
-    return
+    diccionario = {}
+
+    for dato in conversionDatos:
+        z = []
+        letra = dato[0]
+
+        for sub in dato[4].split(','):
+
+            if ':' in sub:
+                z.append(map(str.strip, sub.split(':', 1)))
+
+        z = dict(z)
+        z = dict([a, int(x)] for a, x in z.items())
+        valor = sum(z.values())
+        if letra in diccionario:
+            diccionario[letra] += valor
+        else:
+            diccionario[letra] = valor
+
+    return diccionario
