@@ -291,8 +291,8 @@ def pregunta_08():
     for dato in conversionDatos:
         numero = int(dato[1])
         if numero in lista1:
-            x = lista1.index(num)
-            if not dato[0] in lista2[val]:
+            x = lista1.index(numero)
+            if not dato[0] in lista2[x]:
                 lista2[x].append(dato[0])
         else:
             lista1.append(numero)
@@ -338,16 +338,16 @@ def pregunta_09():
 
         z = dict(z)
         for k in z.keys():
-            l = k
-            if l in lista1:
-                x = lista1.index(l)
+            letra = k
+            if letra in lista1:
+                x = lista1.index(letra)
                 lista3[x].append(int(z[k]))
             else:
-                lista1.append(l)
+                lista1.append(letra)
                 lista3.append([int(z[k])])
 
-    for ele in lista3:
-        lista2.append(len(ele))
+    for l in lista3:
+        lista2.append(len(l))
     listafinal = dict(zip(lista1, lista2))
     return listafinal
 
