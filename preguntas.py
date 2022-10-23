@@ -248,7 +248,20 @@ def pregunta_07():
     ]
 
     """
-    return
+    lista1 = []
+    lista2 = []
+    for dato in conversionDatos:
+        numero = int(dato[1])
+        if numero in lista1:
+            x = lista1.index(num)
+            lista2[x].append(dato[0])
+        else:
+            lista1.append(numero)
+            lista2.append([dato[0]])
+
+    listafinal = list(zip(lista1, lista2))
+    return sorted(listafinal, key=lambda tup: tup[0])
+
 
 
 def pregunta_08():
@@ -273,7 +286,23 @@ def pregunta_08():
     ]
 
     """
-    return
+    lista1 = []
+    lista2 = []
+    for dato in conversionDatos:
+        numero = int(dato[1])
+        if numero in lista1:
+            x = lista1.index(num)
+            if not dato[0] in lista2[val]:
+                lista2[x].append(dato[0])
+        else:
+            lista1.append(numero)
+            lista2.append([dato[0]])
+
+    for l in lista2:
+        l = l.sort()
+
+    listafinal = list(zip(lista1, lista2))
+    return sorted(listafinal, key=lambda tup: tup[0])
 
 
 def pregunta_09():
@@ -296,7 +325,31 @@ def pregunta_09():
     }
 
     """
-    return
+    lista1 = []
+    lista3 = []
+    lista2 = []
+
+    for dato in conversionDatos:
+        z = []
+        for sub in dato[4].split(','):
+
+            if ':' in sub:
+                z.append(map(str.strip, sub.split(':', 1)))
+
+        z = dict(z)
+        for k in z.keys():
+            l = k
+            if l in lista1:
+                x = lista1.index(l)
+                lista3[x].append(int(z[k]))
+            else:
+                lista1.append(l)
+                lista3.append([int(z[k])])
+
+    for ele in lista3:
+        lista2.append(len(ele))
+    listafinal = dict(zip(lista1, lista2))
+    return listafinal
 
 
 def pregunta_10():
